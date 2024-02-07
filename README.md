@@ -2,16 +2,15 @@
 This repository implements the Textual Inversion technique ([paper](https://textual-inversion.github.io/)), empowering you to personalize image generation models like Stable Diffusion using just a handful of example images. 
 
 ## Description
-Textual Inversion is a training technique for personalizing image generation models with just a few example images of what you want it to learn. 
+Textual Inversion is a training technique for personalizing image generation models with just a few example images of what you want them to learn. 
 This technique works by learning and updating the text embeddings (the new embeddings are tied to a special word you must use in the prompt) to match the example images you provide.
-Textual Inversion is built on top of the Latent Diffusion Models by modifying the learned embeddings by associating a particular token to some images (using only 3-5 images
-works well) which represent a certain style or concept that needs to be captured in the output image.
+Textual Inversion is built on top of the Latent Diffusion Models by modifying the learned embeddings by associating a particular token to some images (using only 3-5 images works well) that represent a style or concept that needs to be captured in the output image.
 ![schematic by the authors of the paper describing how Textual Inversion works](https://textual-inversion.github.io/static/images/training/training.JPG)
 This project first builds a typical Stable Diffusion image-to-image inference pipeline by putting together its components, namely Variational Autoencoder, U-Net, Scheduler, and Text Encoder, allowing for better control of the output and a better understanding of the workings of the model. Then, we modify the text embeddings by replacing a less-used token ('sd</w>' in this case) with the embedding vectors corresponding to the 
 example concept (GTA 5 artwork) images. 
 
 ## Getting Started
-1. CLone this repository:
+1. Clone this repository:
    `git clone https://github.com/darkknightxi/textual-inversion.git`
 3. Install Dependencies:
    `pip install -r requirements.txt`
